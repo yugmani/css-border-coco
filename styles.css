@@ -7,9 +7,35 @@ body {
   font-family: system-ui, sans-serif;
   color: black;
   background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
   font-weight: bold;
   font-size: 1.5rem;
+}
+
+.dashed {
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: auto;
+  /* border: 1px dashed #333; */
+  background: linear-gradient(90deg, #333 50%, transparent 0) repeat-x,
+    linear-gradient(90deg, #333 50%, transparent 0) repeat-x,
+    linear-gradient(0deg, #333 50%, transparent 0) repeat-Y,
+    linear-gradient(0deg, #333 50%, transparent 0) repeat-y;
+  background-size: 4px 1px, 4px 1px, 1px 4px, 1px 4px;
+  background-position: 0 0, 0 100%, 0 0, 100% 0;
+}
+
+.dashed:hover {
+  animation: linearGradientMove 0.3s infinite linear;
+}
+
+@keyframes linearGradientMove {
+  100% {
+    background-position: 4px 0, -4px 100%, 0 -4px, 100% 4px;
+  }
 }
